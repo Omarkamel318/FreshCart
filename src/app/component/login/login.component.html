@@ -1,0 +1,31 @@
+
+
+<form  (ngSubmit)="sendLoginForm()" [formGroup]="loginForm" class="container shadow-sm mt-5" action="">
+    <div *ngIf="errMessage" class="alert alert-danger d-flex gap-2 align-items-center fw-light h2" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <div>
+         {{errMessage}}
+        </div>
+      </div>
+    <h1 class="fw-light h2">Login Now:</h1>
+
+<div class="email">
+    <label class="form-label" for="inputEmail">Email</label>
+    <input formControlName="email" class="form-control main-form-control " type="email" id="inputEmail">
+    <div class="p-1" *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched">
+        <p  *ngIf="loginForm.get('email')?.errors?.['email']"  class=" text-danger fs-6">invalid email </p>
+        <p  *ngIf="loginForm.get('email')?.errors?.['required']" class=" text-danger fs-6">email is requerd</p>
+    </div>
+</div>
+<div class="password">
+    <label class="form-label" for="inputpassword">password</label>
+    <input formControlName="password" class="form-control main-form-control" type="Password" id="inputpassword">
+    <div class="p-1" *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched">
+        <p  *ngIf="loginForm.get('password')?.errors?.['minlength']"  class=" text-danger fs-6">minimum length 6 characters </p>
+        <p  *ngIf="loginForm.get('password')?.errors?.['required']" class=" text-danger fs-6">password is requerd</p>
+    </div>
+</div>
+<button [disabled]="loginForm.invalid" class=" main-btn d-block ms-auto my-2 " type="submit">Login</button>
+
+
+</form>

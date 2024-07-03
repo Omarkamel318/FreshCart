@@ -1,0 +1,32 @@
+ <section class="py-3">
+    <div class="row justify-content-center m-0 g-4">
+        <div class="col-lg-3 rounded " *ngFor="let category of categories">
+            <div class="shadow p-2 border border-1 border-success" role="button">
+                <img class="w-100"
+                     [src]="category.image" 
+                     [alt]="category.name"
+                     [title]="category.name"
+                     height="300px">
+                <p class="text-main h3 fw-light text-center">{{category.name}}</p>
+            </div>
+        </div>
+    </div>
+       
+ </section>
+
+
+ <!-- <h1 class="fw-light h2">All Categories</h1>
+ <div class="row g-4">
+     <div class=" col-sm-6 col-md-4 col-lg-4 col-xl-3 " role="button" *ngFor="let category of categories">
+         <div class="img">
+             <img
+              class="w-100"
+              [src]="category.image" 
+              [alt]="category.name" 
+              [title]="category.name"
+              height="350px"
+              >
+         </div>
+         <p class="">{{category.name}}</p>
+     </div>
+ </div> -->

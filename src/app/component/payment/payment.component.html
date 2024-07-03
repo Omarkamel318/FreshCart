@@ -1,0 +1,23 @@
+<section class="container shadow-sm rounded">
+    <form [formGroup]="checkoutForm" (ngSubmit)="checkout()" action="">
+        <div class="details ">
+            <label class="form-label" for="detailsinput">Details</label>
+            <input formControlName="details" id="detailsinput" class="form-control" type="text">
+        </div>
+        <div class="phone ">
+            <label class="form-label" for="phoneinput">Phone</label>
+            <input formControlName="phone" id="phoneinput" class="form-control" type="text">
+            <div class="p-1" *ngIf="checkoutForm.get('phone')?.errors&&checkoutForm.get('phone')?.touched">
+                <p *ngIf="checkoutForm.get('phone')?.errors?.['pattern']" class=" text-danger fs-6">invalid phone (Eg
+                    phone requerd) </p>
+                <p *ngIf="checkoutForm.get('phone')?.errors?.['required']" class=" text-danger fs-6">phone is requerd
+                </p>
+            </div>
+        </div>
+        <div class="city ">
+            <label class="form-label" for="cityinput">City</label>
+            <input formControlName="city" id="cityinput" class="form-control" type="text">
+        </div>
+        <button class="btn main-btn my-3">CheckOut</button>
+    </form>
+</section>

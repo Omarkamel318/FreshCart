@@ -1,0 +1,46 @@
+<section class="container rounded shadow py-5">
+
+    <h2 *ngIf="numOfItems" class="text-main h5">Total Price: {{cartData.totalCartPrice}} EGP</h2>
+    <div *ngFor="let item of cartData.products" class="row py-2 border-bottom">
+
+        <div [routerLink]="['/details',item.product.id]" class="col-sm-2 cursor-pointer">
+            <img class="w-100" [src]="item.product.imageCover" [alt]="item.product.title">
+        </div>
+        <div class="col-sm-9 hstack justify-content-between">
+            <div>
+                <h3 [routerLink]="['/details',item.product.id]" class="h6 cursor-pointer">{{item.product.title}}</h3>
+                <p class="text-main fw-bolder">price: {{item.price}}</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt architecto voluptas quod
+                    dolorum similique! Et dolorum iure alias consequatur. Corrupti.</p>
+                <button (click)="removeItem(item.product.id)" class="btn m-0 p-0">
+                    <i class="text-main fa-solid fa-trash-can"></i>
+                    Remove
+                </button>
+            </div>
+            <div class="hstack gap-2">
+                <button #btn1 (click)="updateItemCount(item.product._id,item.count - 1,btn1 ,btn2)"
+                    class="btn btn-sm border-success">
+
+                    -
+                </button>
+                <p class="m-0 p-0">{{item.count}}</p>
+                <button #btn2 (click)="updateItemCount(item.product._id,item.count + 1,btn1 ,btn2)"
+                    class="btn btn-sm border-success">
+                    +
+                </button>
+            </div>
+        </div>
+    </div>
+    <button *ngIf="numOfItems else stshop" class="main-btn mt-3" [routerLink]="['/payment',cart_id]">Online Payment <img
+            class="w-25" src="./assets/images/visa-1.svg" alt="visa"></button>
+</section>
+
+<ng-template #stshop>
+    <div class="w-50 m-auto d-flex flex-column align-items-center">
+        <img class="w-50 rounded-circle" src="./assets/images/preview.png" alt="">
+        <p class="h4 ">The cart is empty</p>
+        <p>Browse categories and discover our best offers!</p>
+        <button routerLink="/home" class=" main-btn d-block  my-2">Start Shopping <i
+                class="fa-solid fa-cart-shopping"></i></button>
+    </div>
+</ng-template>

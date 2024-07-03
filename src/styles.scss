@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: #ffc908;
+$main-transition: 0.8s;
+$button-transition:1.3s;
+body{
+    font-family: $font-family;
+}
+section{
+    margin-top: 85px !important;
+}
+.rating-color {
+    color: $rating-color;
+}
+
+.active{
+    background-color: $main-color;
+    color: white !important;
+    border-radius: 5px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.font-sm {
+    font-size: 14px;
+}
+
+.text-main {
+    color: $main-color;
+}
+
+.text-main-light {
+    color: $light-color;
+}
+
+.bg-main {
+    background-color: $main-color !important;
+}
+
+.bg-main-light {
+    background-color: $light-color !important;
+}
+
+.main-btn {
+    border: unset;
+    cursor: pointer;
+    color: #fff !important;
+    background-color: $main-color !important;
+    padding: 8px 12px;
+    transition: background-color $button-transition;
+    border-radius: 5px;
+}
+
+.main-btn:hover {
+    background-color: #099409 !important;
+}
+
+.main-btn:disabled {
+    background-color: #067a0692 !important;
+    color: #ffffff8e !important;
+    cursor: auto;
+}
+
+.product {
+    border-radius: 5px;
+    padding: 4px ;
+    box-shadow: $shadow;
+    
+    &:hover {
+        box-shadow: $shadow;
+        border: solid 1px $main-color;
+
+        .add-btn {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+    .add-btn {
+        transition: transform $button-transition, opacity 1s;
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.main-form-control:focus{
+    border-color: $main-color!important;
+    box-shadow: 0 0 0 0.25rem rgba(10, 173, 10, 0.25);
+}
+
+.toast-container{
+    top: 85% !important;
+    right: 0 !important;
+  }
+
+ 
+.product p,.product h3{
+    max-width: 100%;
+    text-wrap: nowrap;  
+    text-overflow: ellipsis !important;
+    overflow: hidden;
+}
+.item img{
+    height: 240px !important;
+}
+
